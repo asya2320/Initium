@@ -1,0 +1,107 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+
+$md-callPanelprimary: (
+    50 : #e5f3fd,
+    100 : #bfe1fc,
+    200 : #97d0fb,
+    300 : #6fbcf8,
+    400 : #53aef8,
+    500 : #3ba0f6,
+    600 : #3692e8,
+    700 : #2f7fd5,
+    800 : #2a6ec3,
+    900 : #2050a4,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$md-callPanelaccent: (
+    50 : #eeeeee,
+    100 : #d4d6d9,
+    200 : #b8bbc2,
+    300 : #9aa0ac,
+    400 : #858b9a,
+    500 : #6f788a,
+    600 : #616979,
+    700 : #505662,
+    800 : #40444c,
+    900 : #2d2f35,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-callPanelwarn: (
+    50 : #ffeaed,
+    100 : #ffcbce,
+    200 : #f59692,
+    300 : #ed6c68,
+    400 : #f64940,
+    500 : #fa361f,
+    600 : #ec2920,
+    700 : #da1b1b,
+    800 : #cd0f13,
+    900 : #bf0001,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$md-typography: mat.define-typography-config($font-family: 'Roboto');
+
+$callPanel-primary: mat.define-palette($md-callPanelprimary);
+$callPanel-accent: mat.define-palette($md-callPanelaccent);
+$callPanel-warn: mat.define-palette($md-callPanelwarn);
+
+$callPanel-theme: mat.define-light-theme((color: (primary: $callPanel-primary,
+                accent: $callPanel-accent,
+                warn: $callPanel-warn,
+            ), typography: $md-typography));
+
+
+@include mat.all-component-themes($callPanel-theme);
