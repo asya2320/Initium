@@ -1,0 +1,43 @@
+<div class="table__wrapper">
+    <div class="table-header__wrapper">
+        <div class="table-header__control-block">
+            <app-add-btn></app-add-btn>
+            <app-remove-btn></app-remove-btn>
+        </div>
+        <div class="table-header__headers">
+            <mat-checkbox></mat-checkbox>
+            <div class="table__column fullanme-info">
+                <span class="header">Имя</span>
+            </div>
+            <div class="table__column fullanme-info">
+                <span class="header">Фамилия</span>
+            </div>
+            <div class="table__column additional-info">
+                <span class="header">E-mail</span>
+            </div>
+            <div class="table__column additional-info">
+                <span class="header">Телефон</span>
+            </div>
+        </div>
+    </div>
+    <div class="table-info__wrapper" *ngIf="dataObs">
+        <div
+            class="table__wrapper-client"
+            *ngFor="let client of dataObs | async as clients; let i = index"
+        >
+            <mat-checkbox></mat-checkbox>
+            <div class="table__column fullanme-info">
+                <span>{{ client.name }}</span>
+            </div>
+            <div class="table__column fullanme-info">
+                <span>{{ client.surname }}</span>
+            </div>
+            <div class="table__column additional-info">
+                <span>{{ client.email }}</span>
+            </div>
+            <div class="table__column additional-info">
+                <span>{{ client.phone }}</span>
+            </div>
+        </div>
+    </div>
+</div>
