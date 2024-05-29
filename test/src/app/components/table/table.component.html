@@ -5,7 +5,7 @@
             <app-remove-btn></app-remove-btn>
         </div>
         <div class="table-header__headers">
-            <mat-checkbox></mat-checkbox>
+            <mat-checkbox color="primary"></mat-checkbox>
             <div class="table__column fullanme-info">
                 <span class="header">Имя</span>
             </div>
@@ -23,19 +23,31 @@
     <div class="table-info__wrapper" *ngIf="dataObs">
         <div
             class="table__wrapper-client"
-            *ngFor="let client of dataObs | async as clients; let i = index"
+            *ngFor="let client of dataObs | async; let i = index"
         >
-            <mat-checkbox></mat-checkbox>
-            <div class="table__column fullanme-info">
+            <mat-checkbox color="primary" ></mat-checkbox>
+            <div
+                (click)="editClient(client, i)"
+                class="table__column fullanme-info"
+            >
                 <span>{{ client.name }}</span>
             </div>
-            <div class="table__column fullanme-info">
+            <div
+                (click)="editClient(client, i)"
+                class="table__column fullanme-info"
+            >
                 <span>{{ client.surname }}</span>
             </div>
-            <div class="table__column additional-info">
+            <div
+                (click)="editClient(client, i)"
+                class="table__column additional-info"
+            >
                 <span>{{ client.email }}</span>
             </div>
-            <div class="table__column additional-info">
+            <div
+                (click)="editClient(client, i)"
+                class="table__column additional-info"
+            >
                 <span>{{ client.phone }}</span>
             </div>
         </div>

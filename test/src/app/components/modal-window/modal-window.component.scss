@@ -1,0 +1,76 @@
+.modal-window {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 44px 40px;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__heading {
+        padding: 0px;
+        font-weight: 600;
+        font-size: 24px;
+        font-family: "Roboto", sans-serif;
+    }
+}
+
+.form__wrapper {
+    padding: 0px;
+    height: 344px;
+
+    & .form__field {
+        padding: 0px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .mat-mdc-form-field {
+        width: 100% !important
+    }
+}
+
+.form {
+
+    &__wrapper-btn {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__save-btn {
+        width: 134px;
+        height: 53px;
+        border-radius: 37px;
+        background-color: #2F67D5 !important;
+        color: white !important;
+
+        &:disabled {
+            background-color: #D8DEE9 !important;
+        }
+
+        &:hover {
+            background-color: #3C7CF8 !important;
+        }
+
+        &:active {
+            background-color: #194EB6 !important;
+        }
+    }
+
+    &__cancel-btn {
+        width: 109px;
+        height: 53px;
+        border-radius: 37px;
+        color: #2F67D5 !important;
+
+        &:hover {
+            background-color: rgba(60, 124, 248, 0.1) !important;
+        }
+
+        &:active {
+            background-color: rgba(65, 78, 182, 0.2) !important;
+        }
+    }
+}

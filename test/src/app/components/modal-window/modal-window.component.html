@@ -1,0 +1,68 @@
+<div class="modal-window__wrapper">
+    <h1 class="modal-window__heading">
+        {{ data === null ? "Новый клиент" : "Редактирование" }}
+    </h1>
+    <div class="form__wrapper">
+        <form [formGroup]="form" class="form__field">
+            <mat-form-field appearance="outline">
+                <mat-label>Имя</mat-label>
+                <input matInput formControlName="name" required />
+                <mat-error *ngIf="form.get('name')?.hasError('required')">
+                    Поле "Имя" обязательно
+                </mat-error>
+                <mat-error *ngIf="form.get('name')?.hasError('minlength')">
+                    Длина должна быть не менее 2 символов
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Фамилия</mat-label>
+                <input matInput formControlName="surname" required />
+                <mat-error *ngIf="form.get('surname')?.hasError('required')">
+                    Поле "Фамилия" обязательно
+                </mat-error>
+                <mat-error *ngIf="form.get('surname')?.hasError('minlength')">
+                    Длина должна быть не менее 2 символов
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput formControlName="email" required />
+                <mat-error *ngIf="form.get('email')?.hasError('required')">
+                    Поле "E-mail" обязательно
+                </mat-error>
+                <mat-error *ngIf="form.get('email')?.hasError('email')">
+                    Неправильный формат
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Телефон</mat-label>
+                <input
+                    matInput
+                    formControlName="phone"
+                    placeholder="Телефон"
+                    required
+                />
+                <mat-error *ngIf="form.get('phone')?.hasError('pattern')">
+                    Неправильный формат
+                </mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="form__wrapper-btn">
+        <button class="form__cancel-btn" mat-button (click)="onNoClick()">
+            Отменить
+        </button>
+        <button
+            class="form__save-btn"
+            mat-flat-button
+            [mat-dialog-close]="form.value"
+            [disabled]="!form.valid"
+            (click)="addClient()"
+        >
+            Сохранить
+        </button>
+    </div>
+</div>

@@ -13,6 +13,7 @@ import { ClientsInfoComponent } from '../pages/clients-info/clients-info.compone
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ModalWindowComponent } from '../components/modal-window/modal-window.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         RemoveBtnComponent,
         TableComponent,
         ClientsInfoComponent,
+        ModalWindowComponent,
     ],
     imports: [
         CommonModule,

@@ -22,7 +22,12 @@ $gray: #ABABAC;
             height: 47px;
             padding: 0px 20px;
             border-bottom: 1px solid $gray;
+            cursor: pointer;
             @include flex-center;
+
+            &:hover {
+                background-color: #f6f9ff;
+            }
         }
     }
 
@@ -64,6 +69,13 @@ $gray: #ABABAC;
         &.additional-info {
             justify-content: flex-end;
         }
+
+        & span {
+            &:hover {
+                text-decoration: underline;
+                color: #3164cb;
+            }
+        }
     }
 
     &-info {
@@ -72,4 +84,8 @@ $gray: #ABABAC;
             overflow-y: auto;
         }
     }
+}
+
+::ng-deep.mdc-checkbox__checkmark {
+    color: white !important;
 }
