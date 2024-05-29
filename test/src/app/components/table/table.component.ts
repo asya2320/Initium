@@ -2,6 +2,8 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/services/data.service';
 import { ModalWindowComponent } from '../modal-window/modal-window.component';
+import { Observable } from 'rxjs';
+import { IClient } from 'src/app/models/response.model';
 
 @Component({
     selector: 'app-table',
@@ -9,7 +11,7 @@ import { ModalWindowComponent } from '../modal-window/modal-window.component';
     styleUrl: './table.component.scss',
 })
 export class TableComponent implements OnInit {
-    dataObs: any = null;
+    dataObs: Observable<IClient[] | null>;
 
     selectedIndexes: number[] = [];
     isMasterIndeterminate: boolean = false;
@@ -38,7 +40,6 @@ export class TableComponent implements OnInit {
 
     ngOnInit() {
         this.dataObs = this.dataService.data$;
-        console.log('Опять', this.dataObs);
     }
 
     editClient(data: any, index: any): void {
@@ -54,11 +55,9 @@ export class TableComponent implements OnInit {
 
     masterChange(event: any): void {
         this.isMasterChecked = event.checked;
-        console.log(this.isMasterChecked);
         this.isMasterIndeterminate = false;
 
         if (this.isMasterChecked) {
-            console.log(this.isMasterChecked);
             const allClients = this.dataService.dataSubject.getValue();
             allClients?.map((_item, index) => this.selectedIndexes.push(index));
         } else {
@@ -82,7 +81,6 @@ export class TableComponent implements OnInit {
     updateMasterCheckboxState(): void {
         if (this.selectedIndexes.length === 0) {
             this.isMasterChecked = false;
-            console.log(this.isMasterChecked);
             this.isMasterIndeterminate = false;
         } else {
             this.isMasterIndeterminate = true;
