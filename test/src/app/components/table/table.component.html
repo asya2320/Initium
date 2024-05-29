@@ -3,9 +3,81 @@
         <div class="table-header__control-block">
             <app-add-btn></app-add-btn>
             <app-remove-btn></app-remove-btn>
+            <mat-form-field class="search" appearance="outline">
+                <mat-label>Поиск</mat-label>
+                <input
+                    matInput
+                    type="text"
+                    [(ngModel)]="filterValue"
+                    (input)="applyFilter()"
+                    [disabled]="selectedIndexes.length > 0"
+                />
+            </mat-form-field>
+
+            <button
+                mat-flat-button
+                (click)="applySort('name')"
+                [disabled]="selectedIndexes.length > 0"
+            >
+                Имя<mat-icon
+                    *ngIf="sortDirection === 'desc' && sortField === 'name'"
+                    >keyboard_arrow_down</mat-icon
+                >
+                <mat-icon
+                    *ngIf="sortDirection === 'asc' && sortField === 'name'"
+                    >keyboard_arrow_up</mat-icon
+                >
+            </button>
+            <button
+                mat-button
+                (click)="applySort('surname')"
+                [disabled]="selectedIndexes.length > 0"
+            >
+                Фамилия<mat-icon
+                    *ngIf="sortDirection === 'desc' && sortField === 'surname'"
+                    >keyboard_arrow_down</mat-icon
+                >
+                <mat-icon
+                    *ngIf="sortDirection === 'asc' && sortField === 'surname'"
+                    >keyboard_arrow_up</mat-icon
+                >
+            </button>
+            <button
+                mat-button
+                (click)="applySort('email')"
+                [disabled]="selectedIndexes.length > 0"
+            >
+                E-mail<mat-icon
+                    *ngIf="sortDirection === 'desc' && sortField === 'email'"
+                    >keyboard_arrow_down</mat-icon
+                >
+                <mat-icon
+                    *ngIf="sortDirection === 'asc' && sortField === 'email'"
+                    >keyboard_arrow_up</mat-icon
+                >
+            </button>
+            <button
+                mat-button
+                (click)="applySort('phone')"
+                [disabled]="selectedIndexes.length > 0"
+            >
+                Телефон<mat-icon
+                    *ngIf="sortDirection === 'desc' && sortField === 'phone'"
+                    >keyboard_arrow_down</mat-icon
+                >
+                <mat-icon
+                    *ngIf="sortDirection === 'asc' && sortField === 'phone'"
+                    >keyboard_arrow_up</mat-icon
+                >
+            </button>
         </div>
         <div class="table-header__headers">
-            <mat-checkbox color="primary"></mat-checkbox>
+            <mat-checkbox
+                color="primary"
+                [checked]="isMasterChecked"
+                [indeterminate]="isMasterIndeterminate"
+                (change)="masterChange($event)"
+            ></mat-checkbox>
             <div class="table__column fullanme-info">
                 <span class="header">Имя</span>
             </div>
@@ -25,7 +97,11 @@
             class="table__wrapper-client"
             *ngFor="let client of dataObs | async; let i = index"
         >
-            <mat-checkbox color="primary" ></mat-checkbox>
+            <mat-checkbox
+                color="primary"
+                (change)="clientChange($event, i)"
+                [checked]="selectedIndexes.includes(i)"
+            ></mat-checkbox>
             <div
                 (click)="editClient(client, i)"
                 class="table__column fullanme-info"

@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ModalWindowComponent } from '../components/modal-window/modal-window.component';
+import { ModalConfirmRemovingComponent } from '../components/modal-confirm-removing/modal-confirm-removing.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -22,12 +24,14 @@ import { ModalWindowComponent } from '../components/modal-window/modal-window.co
         TableComponent,
         ClientsInfoComponent,
         ModalWindowComponent,
+        ModalConfirmRemovingComponent,
     ],
     imports: [
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
         MatButtonModule,
+        MatIconModule,
         MatFormFieldModule,
         FormsModule,
         MatInputModule,

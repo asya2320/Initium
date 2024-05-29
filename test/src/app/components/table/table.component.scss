@@ -36,7 +36,7 @@ $gray: #ABABAC;
             padding: 0px 22px;
             display: flex;
             align-items: center;
-            height: 47px;
+            height: 80px;
 
 
         }
@@ -88,4 +88,14 @@ $gray: #ABABAC;
 
 ::ng-deep.mdc-checkbox__checkmark {
     color: white !important;
+}
+
+
+::ng-deep.mat-mdc-checkbox.mat-primary {
+
+    --mdc-checkbox-selected-checkmark-color: white !important;
+}
+
+::ng-deep.search .mat-mdc-form-field-subscript-wrapper {
+    display: none;
 }

@@ -1,0 +1,16 @@
+<div class="modal-window__wrapper">
+    <h1 class="modal-window__heading">Удаление строк</h1>
+    <div class="form__wrapper">
+        Удалить выбранные строки ({{
+            dataService.getLengthOfRemovingClients()
+        }})?
+    </div>
+    <div class="form__wrapper-btn">
+        <button class="form__cancel-btn" mat-button (click)="onNoClick()">
+            Отмена
+        </button>
+        <button class="form__save-btn" mat-flat-button (click)="removeClient()">
+            Удалить
+        </button>
+    </div>
+</div>
